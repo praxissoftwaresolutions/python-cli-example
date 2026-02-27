@@ -43,9 +43,9 @@ for p in ROOT.rglob('*.py'):
         i += 1
     while i < len(lines) and lines[i].strip() == '':
         i += 1
-    doc = make_docstring(p)
-    new_text = ''.join(lines[:i]) + doc + ''.join(lines[i:])
-    p.write_text(new_text, encoding='utf-8')
+    DOC = make_docstring(p)
+    NEW_TEXT = ''.join(lines[:i]) + DOC + ''.join(lines[i:])
+    p.write_text(NEW_TEXT, encoding='utf-8')
     changed.append(str(p.relative_to(ROOT)))
 
 if changed:
