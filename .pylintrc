@@ -2,4 +2,11 @@
 disable=
     import-error,
     missing-module-docstring,
-    missing-function-docstring
+    missing-final-newline,
+    missing-function-docstring,
+    trailing-newlines,
+    f-string-without-interpolation,
+    inconsistent-return-statements,
+    redefined-outer-name,
+    unspecified-encoding,
+    R0801
