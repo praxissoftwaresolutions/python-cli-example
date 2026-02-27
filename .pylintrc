@@ -10,3 +10,6 @@ disable=
     redefined-outer-name,
     unspecified-encoding,
     R0801
+
+basic=
+    good-names=DOC,NEW_TEXT
