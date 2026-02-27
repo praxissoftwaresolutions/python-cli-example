@@ -1,3 +1,7 @@
+"""blkpy CLI entrypoint.
+
+Provides the Click-based `main` command which runs lsblk on the given device.
+"""
 import click
 from blkpy.util import run_lsblk
 

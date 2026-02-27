@@ -1,3 +1,5 @@
+"""examples/simple.py module."""
+
 import subprocess
 import shlex
 import json

@@ -1,3 +1,5 @@
+"""blkpy/util.py module."""
+
 import subprocess
 import shlex
 import json

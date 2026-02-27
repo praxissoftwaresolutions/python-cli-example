@@ -1,3 +1,5 @@
+"""examples/framework.py module."""
+
 import subprocess
 import shlex
 import json

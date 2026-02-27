@@ -1,3 +1,5 @@
+"""setup.py module."""
+
 from setuptools import setup, find_packages
 
 # read the requirements.txt file and use it to install dependencies
