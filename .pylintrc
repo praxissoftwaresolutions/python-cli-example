@@ -9,7 +9,5 @@ disable=
     inconsistent-return-statements,
     redefined-outer-name,
     unspecified-encoding,
-    R0801
-
-basic=
-    good-names=DOC,NEW_TEXT
+    R0801,
+    C0103
