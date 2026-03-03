@@ -6,7 +6,6 @@ FROM mcr.microsoft.com/vscode/devcontainers/python:0-${VARIANT}
 
 # Define the path to the virtualenv to work with
 ARG VENV_PATH="/home/vscode/venv"
-WORKDIR "${VENV_PATH}"
 
 RUN pwd
 RUN ls -alh

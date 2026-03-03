@@ -14,6 +14,7 @@ variables:
   imageRepository: 'praxissoftwaresolutionspythoncliexample'
   containerRegistry: 'clspracticecontainerregistry-d0gmgkhtc4g2fcfm.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/.devcontainer/Dockerfile'
+  buildContext: '$(Build.SourcesDirectory)' # Sets the context to the repo root
   tag: '$(Build.BuildId)'
 
   # Agent VM image name
