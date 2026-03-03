@@ -9,7 +9,7 @@ ARG VENV_PATH="/home/vscode/venv"
 
 RUN pwd && ls -la
 
-COPY requirements.txt /tmp/pip-tmp/
+COPY ../requirements.txt /tmp/pip-tmp/
 RUN su vscode -c "python -m venv /home/vscode/venv" \
    && su vscode -c "${VENV_PATH}/bin/pip --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt" \
    && rm -rf /tmp/pip-tmp
