@@ -1,27 +1,19 @@
-# Docker
-# Build and push an image to Azure Container Registry
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+name: Build and Push to ACR
 
-trigger:
-- main
+on:
+  push:
+    branches:
+      - main
 
-resources:
-- repo: self
-
-variables:
-  # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '94c76126-4c27-4d94-855d-4222a3081d23'
-  imageRepository: 'praxissoftwaresolutionspythoncliexample'
-  containerRegistry: 'clspracticecontainerregistry-d0gmgkhtc4g2fcfm.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/.devcontainer/Dockerfile'
-  tag: '$(Build.BuildId)'
-
-  # Agent VM image name to use for the build job
-  vmImageName: 'ubuntu-latest'
+env:
+  REGISTRY: clspracticecontainerregistry-d0gmgkhtc4g2fcfm.azurecr.io
+  IMAGE_REPOSITORY: praxissoftwaresolutionspythoncliexample
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v3
       
@@ -31,7 +23,7 @@ jobs:
       - name: Log in to Azure Container Registry
         uses: docker/login-action@v2
         with:
-          registry: ${{ env.containerRegistry }}
+          registry: ${{ env.REGISTRY }}
           username: ${{ secrets.AZURE_CLIENT_ID }}
           password: ${{ secrets.AZURE_CLIENT_SECRET }}
       
@@ -41,5 +33,4 @@ jobs:
           context: .
           file: .devcontainer/Dockerfile
           push: true
-          tags: |
-            ${{ env.containerRegistry }}/${{ env.imageRepository }}:${{ github.run_id }}
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_REPOSITORY }}:${{ github.run_id }}
