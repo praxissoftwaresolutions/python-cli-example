@@ -16,7 +16,7 @@ variables:
   dockerfilePath: '$(Build.SourcesDirectory)/.devcontainer/Dockerfile'
   tag: '$(Build.BuildId)'
 
-  # Agent VM image name
+  # Agent VM image name to use for the build job
   vmImageName: 'ubuntu-latest'
 
 jobs:
