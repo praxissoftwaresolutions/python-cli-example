@@ -13,6 +13,7 @@ RUN ls -alh
 #RUN ${VENV_PATH}/bin/pip install -r requirements.txt
 
 COPY .devcontainer/requirements.txt /tmp/pip-tmp/
+RUN cat /tmp/pip-tmp/requirements.txt
 RUN su vscode -c "python -m venv /home/vscode/venv" \
    && su vscode -c "${VENV_PATH}/bin/pip --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt" \
    && rm -rf /tmp/pip-tmp
